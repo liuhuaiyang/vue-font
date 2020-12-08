@@ -23,7 +23,7 @@
        </el-form>
      <el-form  label-width="120px" size="small">
          <el-row>
-           <el-button>默认按钮危险按钮危险按钮危险按钮</el-button>
+           <el-button>09876543321</el-button>
          </el-row>
      </el-form>
     <el-table
