@@ -10,7 +10,6 @@
            
            <el-col :span="3">
              <el-button type="primary"  @click.native="getStore()">11</el-button>
-             <el-button type="warning"  @click="get2()">22</el-button>
            </el-col>
          </el-row>
          <el-row>
@@ -84,14 +83,7 @@
 		
 		  })
        },
-       //
-       get2(){
-          debugger;
-		  let that = this;
-		  that.$axios.get("/api/test/getTest", function (res) { 
-		    var a=1; 
-		 })
-       }
+       //删除方法2
        //
        
      }
