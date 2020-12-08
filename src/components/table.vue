@@ -4,7 +4,7 @@
          <el-row :span="24">
            <el-col :span="11">
              <el-form-item label="中心机房id *">
-               <el-input  placeholder="请输入机房id"></el-input>
+               <el-input  placeholder="请输入机房"></el-input>
              </el-form-item>
            </el-col>
            
@@ -15,11 +15,11 @@
          </el-row>
          <el-row>
 		  <el-button>默认按钮</el-button>
-		  <el-button type="primary" @click.native="getStore()">主要按钮11</el-button>
-		  <el-button type="success">成功按钮11</el-button>
-		  <el-button type="info">信息按钮11</el-button>
-		  <el-button type="warning">警告按钮11</el-button>
-		  <el-button type="danger">危险按钮11</el-button>
+		  <el-button type="primary" @click.native="getStore()">主要按钮</el-button>
+		  <el-button type="success">成功按钮</el-button>
+		  <el-button type="info">信息按钮</el-button>
+		  <el-button type="warning">警告按钮</el-button>
+		  <el-button type="danger">危险按钮</el-button>
 		</el-row>
        </el-form>
 
@@ -28,7 +28,7 @@
       style="width: 100%">
       <el-table-column
         prop="date"
-        label="日期errrr"
+        label="日期"
         width="180">
       </el-table-column>
       <el-table-column
