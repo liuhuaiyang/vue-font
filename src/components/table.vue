@@ -21,7 +21,11 @@
 		  <el-button type="danger">危险按钮</el-button>
 		</el-row>
        </el-form>
-
+     <el-form  label-width="120px" size="small">
+         <el-row>
+           <el-button>默认按钮危险按钮危险按钮危险按钮</el-button>
+         </el-row>
+     </el-form>
     <el-table
       :data="tableData"
       style="width: 100%">
