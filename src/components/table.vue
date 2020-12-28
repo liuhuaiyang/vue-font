@@ -20,12 +20,7 @@
 		  <el-button type="warning">警告按钮</el-button>
 		  <el-button type="danger">危险按钮</el-button>
 		</el-row>
-       </el-form>
-     <el-form  label-width="120px" size="small">
-         <el-row>
-           <el-button>乱几把改的</el-button>
-         </el-row>
-     </el-form>
+      </el-form>
     <el-table
       :data="tableData"
       style="width: 100%">
@@ -44,7 +39,23 @@
         label="地址">
       </el-table-column>
     </el-table>
-    </div>
+    
+    <el-card class="box-card" style="width: 520px; display: flex; justify-content: center;">
+	    <el-container>
+	        <el-header>
+	            <el-date-picker v-model="newTime" type="date" placeholder="选择日期" format="yyyy 年 MM 月 dd 日">
+	            </el-date-picker>
+	        </el-header>
+	        <el-main>
+	            还剩下
+	            <el-tag>{{time}}</el-tag>
+	            秒
+	            <el-tag>{{timeDay}}</el-tag>
+	            天
+	        </el-main>
+	    </el-container>
+	</el-card>
+  </div>
   </template>
 
   <script>
@@ -55,25 +66,17 @@
             date: '2016-05-02',
             name: '王小虎',
             address: '上海市普陀区金沙江路 1518 弄'
-          }, {
-            date: '2016-05-04',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1517 弄'
-          }, {
-            date: '2016-05-01',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1519 弄'
-          }, {
-            date: '2016-05-03',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1516 弄'
-          }]
+          }],
+          newTime: '2021-4-15',
+          timeOut: null,
+          time: 0,
+          timeDay: 0
         }
       },
    
    methods:{
       getStore(){
-      debugger;
+         debugger;
 		  let that = this;
 		  that.$axios({
 		    method: "get",//指定请求方式
@@ -87,10 +90,27 @@
 		
 		  })
        },
-       //删除方法2
+       //方法2
        //
+       setTime() {
+           this.timeOut = setInterval(() => {
+               setTimeout(() => {
+                   let timedate = new Date(this.newTime);
+                   let now = new Date();
+                   let date = timedate.getTime() - now.getTime();
+                   let time = Math.ceil((date) / (1000));
+                   let timeDay = Math.ceil((date) / (1000 * 60 * 60 * 24));
+                   this.time = time > 0 ? time : 0;
+                   this.timeDay = timeDay > 0 ? timeDay : 0;
+               }, 0)
+           }, 1000)
+       }
+     //方法3
        
-     }
-      
-    }
+   },
+   created() {
+       this.setTime()
+   }
+ 
+  }
   </script>
